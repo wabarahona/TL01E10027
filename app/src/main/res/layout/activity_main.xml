@@ -31,22 +31,37 @@
         android:textColorHint="@color/white"
         android:textColor="@color/white"
         android:layout_marginTop="20dp"
-        android:layout_gravity="center" />
-    <EditText
+        android:layout_gravity="center"
+        android:importantForAutofill="no"
+         />
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/countrycode"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        app:ccp_textGravity="CENTER"
+        android:textAlignment="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:ccpDialog_allowSearch="true"
+        app:ccp_contentColor="@color/white"
+        app:ccp_defaultPhoneCode="504" />
+
+       <EditText
         android:id="@+id/txtTelefono"
-        android:layout_width="250dp"
+        android:layout_width="220dp"
         android:layout_height="48dp"
         android:hint="Telefono"
         android:padding="5dp"
         android:background="@drawable/border"
         android:textColorHint="@color/white"
         android:textColor="@color/white"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="140dp"
+        android:layout_marginTop="-52dp"
+        android:layout_marginStart="175dp"
         app:layout_constraintBottom_toBottomOf="@id/txtNombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+         />
 
     <EditText
         android:id="@+id/txtNota"
@@ -69,7 +84,7 @@
 
     <Button
         android:id="@+id/btnAgregar"
-        android:layout_width="200dp"
+        android:layout_width="390dp"
         android:layout_height="48dp"
         android:background="@drawable/border"
         android:layout_gravity="center"
@@ -78,7 +93,7 @@
 
     <Button
         android:id="@+id/btnDirectorio"
-        android:layout_width="200dp"
+        android:layout_width="390dp"
         android:layout_height="48dp"
         android:background="@drawable/border"
         android:layout_gravity="center"

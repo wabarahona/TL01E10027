@@ -1,41 +1,69 @@
 package com.example.tl01e1_027;
 
-import static java.lang.Character.toLowerCase;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SearchView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tl01e1_027.Tablas.Personas;
 import com.example.tl01e1_027.configuraciones.SQLiteconexion;
 import com.example.tl01e1_027.configuraciones.Transacciones;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class directorio extends AppCompatActivity {
     SQLiteconexion conexion;
     ListView listView;
     ArrayList<Personas> lista;
     ArrayList<String> ArregloPersonas;
-    private SearchView searchView;
+    Button buttonBack;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_directorio);
-        searchView=findViewById(R.id.search_bar);
-        searchView.clearFocus();
+
         conexion = new SQLiteconexion(this, Transacciones.NameDatabase, null, 1);
-        listView = (ListView) findViewById(R.id.listPersonas);
+        listView = (ListView)findViewById(R.id.listPersonas);
         ObtenerListaPersonas();
+
+        ArrayAdapter adp = new ArrayAdapter(this, android.R.layout.simple_list_item_1,ArregloPersonas);
+        listView.setAdapter(adp);
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int listItem, long id) {
+
+                new AlertDialog.Builder(directorio.this).setTitle("Quieres remover el contacto  " + ArregloPersonas.get(listItem) + "  de la lista?")
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ArregloPersonas.remove(listItem);
+                                adp.notifyDataSetChanged();
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+                        }).create().show();
+
+                return false;
+            }
+        });
+
+        buttonBack = (Button) findViewById(R.id.btnBack);
+        buttonBack.setOnClickListener(view -> onBackPressed());
+
 
         }
 
