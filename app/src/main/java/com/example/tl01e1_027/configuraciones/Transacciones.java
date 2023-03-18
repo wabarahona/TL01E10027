@@ -12,7 +12,7 @@ public class Transacciones
     public static String telefono = "telefono";
     public static String notas = "notas";
 
-    public static String CreateTBPersonas = "CREATE TABLE personas(id INTEGER PRIMARY KEY AUTOINCREMENT " +
+    public static String CreateTBPersonas = "CREATE TABLE personas(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "nombre TEXT, telefono INTEGER, notas TEXT  )";
 
     public static String DropTBPersonas ="DROP TABLE IF EXISTS personas";
