@@ -86,7 +86,7 @@
         android:id="@+id/btnAgregar"
         android:layout_width="390dp"
         android:layout_height="48dp"
-        android:background="@drawable/border"
+        android:background="@drawable/glowbutton"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:text="Agregar" />
@@ -95,7 +95,7 @@
         android:id="@+id/btnDirectorio"
         android:layout_width="390dp"
         android:layout_height="48dp"
-        android:background="@drawable/border"
+        android:background="@drawable/glowbutton"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:text="Directorio" />
