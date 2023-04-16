@@ -147,9 +147,7 @@ public class directorio extends AppCompatActivity {
         ArregloPersonas = new ArrayList<String>();
         for (int i=0; i<lista.size(); i++){
             ArregloPersonas.add(lista.get(i).getId() + "  |  " +
-                    lista.get(i).getNombre() + "  |  " +
-                    lista.get(i).getTelefono() + "  |  " +
-                    lista.get(i).getNotas() + "  |  ");
+                    lista.get(i).getNombre() );
         }
 
 
